@@ -1,7 +1,22 @@
+// React
+import { useState } from "react";
+
+// Components
+import NavigationBar from "./Components/NavigationBar/NavigationBar";
+
 function App() {
+  const [currentFont, setCurrentFont] = useState("Sans Serif");
+
+  const HandleFontSwitch = (font: string) => {
+    setCurrentFont(font);
+  };
+
   return (
-    <div className="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-8">
-      <h1 className="text-4xl font-bold underline">Hello World</h1>
+    <div>
+      <NavigationBar
+        fontFamily={currentFont}
+        updateFontFamily={HandleFontSwitch}
+      />
     </div>
   );
 }
